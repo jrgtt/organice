@@ -1,5 +1,12 @@
 @import '../../../../colors.css';
 
+.query-config-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .capture-template-container {
   border-bottom: 2px solid var(--base2);
   padding: 15px 5px;
@@ -101,10 +108,11 @@
   align-items: flex-end;
 }
 
-.multi-textfield-container {
+.query-config-container {
   width: 100%;
   margin-top: 5px;
   display: flex;
+  flex-direction: column;
   align-content: space-between;
 }
 

@@ -157,35 +157,40 @@ export default ({
         <div>Query strings</div>
       </div>
 
-      <div className="capture-template__help-text">
-        Specify whether the results should start out collapsed, the query string and the type of
-        query. You can add multiple query strings.
-      </div>
+      <div className="capture-template__help-text">Specify one or multiple query string.</div>
 
       <div className="multi-textfields-container">
         {query.get('queries').map((queryConfig, index) => (
-          <div key={`query-config-${index}`} className="multi-textfield-container">
-            <Switch
-              isEnabled={queryConfig.get('collapse')}
-              onToggle={handleQueryCollapseChange(index)}
-            />
-            <input
-              type="text"
-              placeholder="e.g., TODO organice"
-              className="textfield multi-textfield-field"
-              value={queryConfig.get('query')}
-              onChange={handleQueryStringChange(index)}
-            />
-            <TabButtons
-              buttons={['search', 'task-list']}
-              selectedButton={queryConfig.get('type')}
-              onSelect={handleQueryTypeChange(index)}
-              useEqualWidthTabs
-            />
-            <button
-              className="fas fa-times fa-lg remove-multi-textfield-button"
-              onClick={handleRemoveQueryString(index)}
-            />
+          <div key={`query-config-${index}`} className="query-config-container">
+            <div className="query-config-input">
+              <input
+                type="text"
+                placeholder="e.g., TODO organice"
+                className="textfield multi-textfield-field"
+                value={queryConfig.get('query')}
+                onChange={handleQueryStringChange(index)}
+              />
+              <button
+                className="fas fa-times fa-lg remove-multi-textfield-button"
+                onClick={handleRemoveQueryString(index)}
+              />
+            </div>
+            <div className="query-config-input">
+              <span>type of query</span>
+              <TabButtons
+                buttons={['search', 'task-list']}
+                selectedButton={queryConfig.get('type')}
+                onSelect={handleQueryTypeChange(index)}
+                useEqualWidthTabs
+              />
+            </div>
+            <div className="query-config-input">
+              <span>should start out collapsed</span>
+              <Switch
+                isEnabled={queryConfig.get('collapse')}
+                onToggle={handleQueryCollapseChange(index)}
+              />
+            </div>
           </div>
         ))}
       </div>

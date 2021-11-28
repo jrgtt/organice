@@ -317,7 +317,7 @@ const Settings = ({
           Capture templates
         </button>
         <button className="btn settings-btn" onClick={handleQueriesClick}>
-          Custom Queries
+          Custom queries
         </button>
         <button className="btn settings-btn" onClick={handleKeyboardShortcutsClick}>
           Keyboard shortcuts
