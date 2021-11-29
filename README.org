@@ -666,12 +666,20 @@ git push heroku master
     :END:
 
 To configure your own instance of organice for Dropbox, please go [[https://www.dropbox.com/developers/apps/][to
-the Dropbox developer console]], create a new app and configure the
-resulting =clientId= in a newly created ~.env~ file (analogous to
-~.env.sample~) as the value of the key =REACT_APP_DROPBOX_CLIENT_ID=.
+the Dropbox developer console]], create a new app, select "Full Dropbox"
+as access type and name it accord to your choice. Once inside the
+configuration page copy the *App key* and in a newly created ~.env~
+file (analogous to ~.env.sample~) set it as value for
+=REACT_APP_DROPBOX_CLIENT_ID=.
 
 Make sure to add your own host URL (or ~http://localhost:3000/~ for local development) as =Redirect URI=.
 Your dropbox app needs permission to read and write files.
+
+**** Permissions
+
+To be able to read and modify your files it's necessary to allow the
+following permissions for your app: ~account_info.read~,
+~files.metadata.read~, ~files.content.write~ and ~files.content.read~.
 
 *** WebDAV
     :PROPERTIES:
